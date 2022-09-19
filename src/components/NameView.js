@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export const NameView = (props) => {
   debugger;
@@ -7,6 +8,7 @@ export const NameView = (props) => {
     <>
       <p>nameview.js</p>
       <span>name: {name}</span>
+      <Link to={"/persist"}>persist</Link>
     </>
   );
 };

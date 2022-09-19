@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Main, Name, NameView, Signup } from "./components";
 import Counter from "./components/counter";
+import PersistInput from "./components/PersistInput";
 
 export const App = () => {
   return (
@@ -13,6 +14,7 @@ export const App = () => {
           <Route path="/counter" element={<Counter />} />
           <Route path="/name" element={<Name />} />
           <Route path="/nameview" element={<NameView />} />
+          <Route path="/persist" element={<PersistInput />} />
         </Routes>
       </BrowserRouter>
     </>
