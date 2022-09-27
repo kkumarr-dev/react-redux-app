@@ -1,4 +1,4 @@
-import { desc, inc } from "./CounterActions";
+import { desc, inc } from "./counterActions";
 
 export const CountReducer = (state = 0, action) => {
   switch (action.type) {

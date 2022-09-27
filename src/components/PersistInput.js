@@ -7,14 +7,12 @@ const updateText = (text) => {
   };
 };
 const PersistInput = ({ text, dispatch }) => {
-  debugger;
   const textHandler = (e) => {
-    debugger;
     dispatch(updateText(e.target.value));
   };
   return (
     <>
-      <textarea onChange={textHandler}>{text}</textarea>
+      <textarea onChange={textHandler} value={text}></textarea>
       <p>
         saved redux value-<b>{text}</b>
       </p>

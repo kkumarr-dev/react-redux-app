@@ -1,8 +1,7 @@
 import { connect } from "react-redux";
-import { addCount, subCount } from "../store/CounterActions";
+import { addCount, subCount } from "../store/reducers/counterActions";
 import { Signup } from "./Signup";
 const Counter = ({ count, incCount, descCount }) => {
-  debugger;
   return (
     <>
       <p>counter.js</p>

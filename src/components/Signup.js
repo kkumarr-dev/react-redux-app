@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { userSlice } from "../store/userSlice";
+import { saveUser } from "../store/reducers/userSlice";
 
 export function Signup() {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ export function Signup() {
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    dispatch(userSlice.actions.saveUser(name));
+    dispatch(saveUser(name));
     navigate("/name");
   };
 

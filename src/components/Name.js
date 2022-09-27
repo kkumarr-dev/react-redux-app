@@ -1,16 +1,15 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { userSlice } from "../store/userSlice";
+import { saveUser } from "../store/reducers/userSlice";
 
 export const Name = (props) => {
-  debugger;
   const stateName = useSelector((state) => state.user);
   const [name, setName] = useState(stateName);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = () => {
-    dispatch(userSlice.actions.saveUser(name));
+    dispatch(saveUser(name));
     navigate("/nameview");
   };
   return (

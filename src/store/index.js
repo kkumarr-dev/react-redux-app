@@ -1,10 +1,36 @@
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { CountReducer } from "./CountReducer";
-import { userSlice } from "./userSlice";
-const reducer = combineReducers({
-  count: CountReducer,
-  user: userSlice.reducer,
-});
-export const Store = configureStore({
-  reducer,
-});
+import { textReducer } from "./reducers/textReducer";
+import userReducer from "./reducers/userSlice";
+import { CountReducer } from "./reducers/countReducer";
+import todoReducer from "./reducers/todoSlice";
+
+function configStore() {
+  const persistReducers = combineReducers({
+    auth: () => ({ mock: true }),
+    form: persistReducer(
+      {
+        key: "form",
+        storage,
+        debug: true,
+        blacklist: ["foo"],
+      },
+      textReducer
+    ),
+  });
+  const store = configureStore({
+    reducer: {
+      persist: persistReducers,
+      count: CountReducer,
+      user: userReducer,
+      todo: todoReducer,
+      text: textReducer,
+    },
+  });
+
+  const persistor = persistStore(store, window.PRELOADED_STATE);
+  return { store, persistor };
+}
+
+export default configStore;

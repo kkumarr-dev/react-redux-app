@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export const NameView = (props) => {
-  debugger;
   const name = useSelector((state) => state.user);
   return (
     <>
